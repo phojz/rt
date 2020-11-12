@@ -4,6 +4,9 @@ import './App.css'
 const user = {
   name: '按钮'
 }
+// 首字母大写问题解释：首先说这个方法返回的是个组件（dom块），
+// 首字母大写就是告诉React，我是个组件，而不是字符串
+// 小写的话，React会把他当成字符串去处理
 function SayHi(props) {
   return <div>Hi! {props.name}</div>
 }
