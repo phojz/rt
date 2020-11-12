@@ -1,6 +1,21 @@
 import React from 'react'
 import logo from './logo.svg';
 import './App.css'
+
+class Clock extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {date: new Date()}
+  }
+  render () {
+    return (
+      <div>
+        <p>时间：{this.state.date.toLocaleTimeString()}</p>
+      </div>
+    )
+  }
+}
+
 const user = {
   name: '按钮'
 }
@@ -18,6 +33,7 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <div onClick={this.props.getName}>{user.name}</div>
           <SayHi name={user.name}></SayHi>
+          <Clock></Clock>
         </header>
       </div>
     );
