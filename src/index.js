@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+function handleGetName(){
+  console.log(1211122)
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App getName={handleGetName} />
   </React.StrictMode>,
   document.getElementById('root')
 );
