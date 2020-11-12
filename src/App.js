@@ -4,6 +4,9 @@ import './App.css'
 const user = {
   name: '按钮'
 }
+function SayHi(props) {
+  return <div>Hi! {props.name}</div>
+}
 class App extends React.Component {
   render() {
     return (
@@ -11,6 +14,7 @@ class App extends React.Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <div onClick={this.props.getName}>{user.name}</div>
+          <SayHi name={user.name}></SayHi>
         </header>
       </div>
     );
