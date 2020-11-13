@@ -3,17 +3,22 @@ import logo from './logo.svg';
 import './App.css'
 
 class Clock extends React.Component {
-  constructor(props) {
-    // 构造函数是唯一可以给 this.state 赋值的地方
-    super(props)
-    console.log(this)
-    this.state = {
-      date: new Date(),
-      isOn: false
-    }
-    // 为了在回调中使用 this ，这个绑定是必要的
-    this.handleClick = this.handleClick.bind(this)
+  // constructor(props) {
+  //   // 构造函数是唯一可以给 this.state 赋值的地方
+  //   super(props)
+  //   console.log(this)
+  //   this.state = {
+  //     date: new Date(),
+  //     isOn: false
+  //   }
+  //   // 为了在回调中使用 this ，这个绑定是必要的
+  //   // this.handleClick = this.handleClick.bind(this)
+  // }
+  state = {
+    date: new Date(),
+    isOn: false
   }
+
   // 挂载
   componentDidMount() {
     this.timer = setInterval(() => {
@@ -31,7 +36,7 @@ class Clock extends React.Component {
     })
   }
 
-  handleClick() {
+  handleClick = () => {
     this.setState(state => ({
       isOn: !state.isOn
     }))
