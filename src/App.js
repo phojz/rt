@@ -51,8 +51,8 @@ class Clock extends React.Component {
           {this.state.isOn ? 'ON' : 'OFF'}
         </button>
         {
-          this.state.val >= 2 && 
-            <p>我大于2</p>
+          this.state.val >= 2 &&
+          <p>我大于2</p>
         }
       </div>
     )
@@ -62,12 +62,22 @@ class Clock extends React.Component {
 const user = {
   name: '按钮'
 }
+
 // 首字母大写问题解释：首先说这个方法返回的是个组件（dom块），
 // 首字母大写就是告诉React，我是个组件，而不是字符串
 // 小写的话，React会把他当成字符串去处理
 function SayHi(props) {
   return <div>Hi! {props.name}</div>
 }
+
+const numbers = [1, 2, 3, 4, 5]
+function NumList(props) {
+  const listItems = props.data.map(num => <li key={num}>{num}</li>)
+  return (
+    <ul>{listItems}</ul>
+  )
+}
+
 // class App extends React.Component {
 //   render() {
 //     return (
@@ -91,6 +101,7 @@ function App(props) {
         <div onClick={props.getName}>点我</div>
         <SayHi name={user.name}></SayHi>
         <Clock></Clock>
+        <NumList data={numbers}></NumList>
       </header>
     </div>
   );
