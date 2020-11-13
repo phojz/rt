@@ -16,7 +16,8 @@ class Clock extends React.Component {
   // }
   state = {
     date: new Date(),
-    isOn: false
+    isOn: false,
+    val: 2
   }
 
   // 挂载
@@ -49,6 +50,10 @@ class Clock extends React.Component {
         <button onClick={this.handleClick}>
           {this.state.isOn ? 'ON' : 'OFF'}
         </button>
+        {
+          this.state.val >= 2 && 
+            <p>我大于2</p>
+        }
       </div>
     )
   }
