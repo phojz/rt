@@ -7,6 +7,22 @@ class Clock extends React.Component {
     super(props)
     this.state = {date: new Date()}
   }
+  // 挂载
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      this.tick()
+    }, 1000);
+  }
+  // 卸载
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
+
+  tick(){
+    this.setState({
+      date: new Date()
+    })
+  }
   render () {
     return (
       <div>
