@@ -4,8 +4,12 @@ import './App.css'
 
 class Clock extends React.Component {
   constructor(props){
+    // 构造函数是唯一可以给 this.state 赋值的地方
     super(props)
-    this.state = {date: new Date()}
+    console.log(this)
+    this.state = {
+      date: new Date()
+    }
   }
   // 挂载
   componentDidMount() {
