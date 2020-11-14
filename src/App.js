@@ -70,11 +70,26 @@ function SayHi(props) {
   return <div>Hi! {props.name}</div>
 }
 
-const numbers = [1, 2, 3, 4, 5]
+// const numbers = [1, 2, 3, 4, 5]
+// function NumList(props) {
+//   // 错误！这里不需要指定key
+//   // const listItems = props.data.map(num => <li key=>{num}</li>)
+//   const listItems = props.data.map(num => <li>{num}</li>)
+//   return (
+//     <ul>{listItems}</ul>
+//   )
+// }
+function ListItem(props) {
+  return <li>{props.val}</li>
+}
 function NumList(props) {
-  const listItems = props.data.map(num => <li key={num}>{num}</li>)
+  const numbers = props.data
+  const ListItems = numbers.map(
+    num =>
+      <ListItem key={num} val={num}></ListItem>
+  )
   return (
-    <ul>{listItems}</ul>
+    <ul>{ListItems}</ul>
   )
 }
 
@@ -92,7 +107,7 @@ function NumList(props) {
 //     );
 //   }
 // }
-
+const numbers = [1, 2, 3, 4, 5]
 function App(props) {
   return (
     <div className="App">
