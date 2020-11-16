@@ -178,10 +178,15 @@ function App(props) {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        {/* 事件机制 */}
         <div onClick={props.getName}>点我</div>
+        {/* 数据传入 */}
         <SayHi name={user.name}></SayHi>
+        {/* 页面刷新，数据渲染思想 */}
         <Clock></Clock>
+        {/* key值绑定问题 */}
         <NumList data={numbers}></NumList>
+        {/* 状态提升，双向数据绑定 */}
         <ValInput></ValInput>
       </header>
     </div>
