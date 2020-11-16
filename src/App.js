@@ -17,11 +17,20 @@ class Clock extends React.Component {
   state = {
     date: new Date(),
     isOn: false,
-    val: 2
+    val: 0
   }
 
   // 挂载
   componentDidMount() {
+    this.setState({
+      val: this.state.val + 1
+    })
+    console.log(this.state.val)
+    this.setState({
+      val: this.state.val + 1
+    })
+    console.log(this.state.val)
+    // 两次打印都是0，因为setState是异步的
     this.timer = setInterval(() => {
       this.tick()
     }, 1000);
@@ -50,6 +59,7 @@ class Clock extends React.Component {
         <button onClick={this.handleClick}>
           {this.state.isOn ? 'ON' : 'OFF'}
         </button>
+        <p>{this.state.val}</p>
         {
           this.state.val >= 2 &&
           <p>我大于2</p>
