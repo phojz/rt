@@ -190,6 +190,33 @@ function BlueBox(){
     </Slot>
   )
 }
+function NameSlot(props){
+  const redStyle = {
+    background: 'red'
+  }
+  const blueStyle = {
+    background: 'blue'
+  }
+  return (
+    <div>
+      <div style={redStyle}>{props.top}</div>
+      <div style={blueStyle}>{props.bottom}</div>
+    </div>
+  )
+}
+function DoubleBox(){
+  return (
+    <NameSlot 
+      top = {
+        <p>我是红色的</p>
+      }
+      bottom = {
+        <p>我是蓝色的</p>
+      }
+    >
+    </NameSlot>
+  )
+}
 const numbers = [1, 2, 3, 4, 5]
 function App(props) {
   return (
@@ -208,6 +235,8 @@ function App(props) {
         <ValInput></ValInput>
         {/* 包含关系 */}
         <BlueBox></BlueBox>
+        {/* 具名插槽 */}
+        <DoubleBox></DoubleBox>
       </header>
     </div>
   );
