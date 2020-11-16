@@ -109,6 +109,69 @@ function NumList(props) {
 //     );
 //   }
 // }
+
+class InputEl extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  handleInputChange = (e) => {
+    let val = e.target.value
+    this.props.handleVal(val)
+  }
+  render() {
+    return (
+      <div>
+        {this.props.type}：
+        <input 
+          type="text" 
+          value={this.props.val} 
+          onChange={this.handleInputChange} 
+        />
+      </div>
+    )
+  }
+}
+class ValInput extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      type: 'simple',
+      val: 0
+    }
+  }
+  handleSimpleVal = (val)=>{
+    this.setState({
+      type: 'simple',
+      val: val
+    })
+  }
+  handleDoubleVal = (val)=>{
+    this.setState({
+      type: 'double',
+      val: val
+    })
+  }
+  render() {
+    // const type = this.state.type
+    const val = this.state.val
+    const simpleVal = val
+    const doubleVal = val * 2
+    return (
+      <div>
+        <InputEl
+          type="simple"
+          val={simpleVal}
+          handleVal={this.handleSimpleVal}>
+        </InputEl>
+        <InputEl 
+          type="double" 
+          val={doubleVal} 
+          handleVal={this.handleDoubleVal}>
+        </InputEl>
+      </div>
+    )
+  }
+}
 const numbers = [1, 2, 3, 4, 5]
 function App(props) {
   return (
@@ -119,6 +182,7 @@ function App(props) {
         <SayHi name={user.name}></SayHi>
         <Clock></Clock>
         <NumList data={numbers}></NumList>
+        <ValInput></ValInput>
       </header>
     </div>
   );
