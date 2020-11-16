@@ -80,7 +80,9 @@ function SayHi(props) {
 //   )
 // }
 function ListItem(props) {
-  return <li>{props.val}</li>
+  return (
+    <li>{props.val}</li>
+  )
 }
 function NumList(props) {
   const numbers = props.data
