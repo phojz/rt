@@ -172,12 +172,30 @@ class ValInput extends React.Component {
     )
   }
 }
+
+function Slot(props) {
+  const style = {
+    background: '#abcdef'
+  }
+  return (
+    <div style={style}>
+      {props.children}
+    </div>
+  )
+}
+function BlueBox(){
+  return (
+    <Slot>
+      你好啊
+    </Slot>
+  )
+}
 const numbers = [1, 2, 3, 4, 5]
 function App(props) {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* 事件机制 */}
         <div onClick={props.getName}>点我</div>
         {/* 数据传入 */}
@@ -188,6 +206,8 @@ function App(props) {
         <NumList data={numbers}></NumList>
         {/* 状态提升，双向数据绑定 */}
         <ValInput></ValInput>
+        {/* 包含关系 */}
+        <BlueBox></BlueBox>
       </header>
     </div>
   );
