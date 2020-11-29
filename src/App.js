@@ -1,7 +1,5 @@
 import React from 'react'
-import logo from './logo.svg';
 import './App.css'
-
 class Clock extends React.Component {
   // constructor(props) {
   //   // 构造函数是唯一可以给 this.state 赋值的地方
@@ -132,10 +130,10 @@ class InputEl extends React.Component {
     return (
       <div>
         {this.props.type}：
-        <input 
-          type="text" 
-          value={this.props.val} 
-          onChange={this.handleInputChange} 
+        <input
+          type="text"
+          value={this.props.val}
+          onChange={this.handleInputChange}
         />
       </div>
     )
@@ -149,13 +147,13 @@ class ValInput extends React.Component {
       val: 0
     }
   }
-  handleSimpleVal = (val)=>{
+  handleSimpleVal = (val) => {
     this.setState({
       type: 'simple',
       val: val
     })
   }
-  handleDoubleVal = (val)=>{
+  handleDoubleVal = (val) => {
     this.setState({
       type: 'double',
       val: val
@@ -173,9 +171,9 @@ class ValInput extends React.Component {
           val={simpleVal}
           handleVal={this.handleSimpleVal}>
         </InputEl>
-        <InputEl 
-          type="double" 
-          val={doubleVal} 
+        <InputEl
+          type="double"
+          val={doubleVal}
           handleVal={this.handleDoubleVal}>
         </InputEl>
       </div>
@@ -193,14 +191,14 @@ function Slot(props) {
     </div>
   )
 }
-function BlueBox(){
+function BlueBox() {
   return (
     <Slot>
       你好啊
     </Slot>
   )
 }
-function NameSlot(props){
+function NameSlot(props) {
   const redStyle = {
     background: 'red'
   }
@@ -214,19 +212,39 @@ function NameSlot(props){
     </div>
   )
 }
-function DoubleBox(){
+function DoubleBox() {
   return (
-    <NameSlot 
-      top = {
+    <NameSlot
+      top={
         <p>我是红色的</p>
       }
-      bottom = {
+      bottom={
         <p>我是蓝色的</p>
       }
     >
     </NameSlot>
   )
 }
+
+const NameContext = React.createContext('bbbbbb')
+
+function NameCon() {
+  return (
+    <div>
+      <AName></AName>
+    </div>
+  )
+}
+
+class AName extends React.Component {
+  static contextType = NameContext
+  render() {
+    return (
+      <div>{this.context}</div>
+    )
+  }
+}
+
 const numbers = [1, 2, 3, 4, 5]
 function App(props) {
   return (
@@ -247,6 +265,10 @@ function App(props) {
         <BlueBox></BlueBox>
         {/* 具名插槽 */}
         <DoubleBox></DoubleBox>
+        {/* 多级传递数据 */}
+        <NameContext.Provider value="aaaaa">
+          <NameCon></NameCon>
+        </NameContext.Provider>
       </header>
     </div>
   );

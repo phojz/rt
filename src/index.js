@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
-function handleGetName(){
+import TodoList from './TodoList'
+function handleGetName() {
   console.log(1211122)
 }
 ReactDOM.render(
-  <React.StrictMode>
-    <App getName={handleGetName} />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  //   <App getName={handleGetName} />
+  //   {<TodoList></TodoList>}
+  // </React.StrictMode>,
+  <div className='content'>
+    <TodoList></TodoList>
+  </div>,
   document.getElementById('root'),
-  ()=>{
+  () => {
     console.log('加载完成')
   }
 );
