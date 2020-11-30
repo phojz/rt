@@ -12,9 +12,9 @@ class TodoItem extends React.Component {
     const { val } = this.props
     return (
       <li
+        dangerouslySetInnerHTML={{ __html: val }}
         onClick={this.handleComponentDelete}
       >
-        {val}
       </li>
     )
   }
