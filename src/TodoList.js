@@ -5,7 +5,7 @@ class TodoList extends React.Component {
     super(props)
     this.state = {
       inputVal: '',
-      list: [1111111, 22222222, 3333333]
+      list: ['1111111', '22222222', '3333333']
     }
   }
   render() {
